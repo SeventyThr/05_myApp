@@ -50,13 +50,13 @@ class _ScaleAnimationRouteState extends State<MyAnimation>
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Login"),
+        title: const Text("动画演示"),
       ),
       body: Center(
           child: Column(
         children: <Widget>[
           Image.asset(
-            "images/yue.jpg",
+            "images/hua.jpg",
             width: animation.value,
             height: animation.value,
           ),
