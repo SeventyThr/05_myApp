@@ -102,7 +102,7 @@ class login extends State<MyHomePage> {
                         // 通过后再提交数据。
                         userName = unameController.text;
                         mima = mimaController.text;
-                        if (userName == '2653048570' && mima == 'kjfkjfkjf0') {
+                        if (userName == 'feijie' && mima == '01234567') {
                           //验证通过提交数据
                           Navigator.push(
                             context,
