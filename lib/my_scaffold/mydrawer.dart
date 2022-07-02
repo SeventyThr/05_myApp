@@ -54,6 +54,13 @@ class MyDrawer extends StatelessWidget {
                       Navigator.pop(context); //从第二个界面返回
                     },
                   ),
+                  ElevatedButton.icon(
+                    icon: const Icon(Icons.back_hand_sharp),
+                    label: const Text("动画"),
+                    onPressed: () {
+                      Navigator.pop(context); //从第二个界面返回
+                    },
+                  ),
                 ],
               ),
             ),
