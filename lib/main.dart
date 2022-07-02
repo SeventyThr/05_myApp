@@ -57,6 +57,34 @@ class login extends State<MyHomePage> {
   FocusNode focusNode2 = FocusNode();
   FocusScopeNode? focusScopeNode;
   GlobalKey _formKey = GlobalKey<FormState>();
+  String _path = "images/hua.jpg";
+  int _counter=0;
+  void _incrementCounter() {
+    setState(() {
+      _counter++;
+      _path = "images/hua.jpg";
+    });
+  }
+
+  void _clearCounter() {
+    setState(() {
+      _counter = 0;
+    });
+  }
+
+  void _reduceCounter() {
+    setState(() {
+      _counter--;
+    });
+  }
+
+  void _changePic() {
+    setState(() {
+      _path = _path == "images/hua.jpg"
+          ? "images/yue.jpg"
+          : "images/meigui.jpg";
+    });
+  }
   @override
   Widget build(BuildContext context) {
     String userName;
@@ -102,7 +130,7 @@ class login extends State<MyHomePage> {
                         // 通过后再提交数据。
                         userName = unameController.text;
                         mima = mimaController.text;
-                        if (userName == 'feijie' && mima == '01234567') {
+                        if (userName == '2653048570' && mima == 'kjfkjfkjf0') {
                           //验证通过提交数据
                           Navigator.push(
                             context,
@@ -146,12 +174,82 @@ class login extends State<MyHomePage> {
                         focusNode2.unfocus();
                       },
                     ),
+                    Padding(
+              padding: const EdgeInsets.only(bottom: 30.0),
+              child: Image.network("$_path", width: 100, height: 100),
+            ),
+            Column(
+              children: [
+                const Text(
+                  'You have pushed the button this many times: ',
+                ),
+                Text(
+                  '$_counter',
+                  style: Theme.of(context).textTheme.headline4,
+                ),
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(top: 30.0),
+                  child: ElevatedButton(
+                    onPressed: _clearCounter,
+                    style: ElevatedButton.styleFrom(
+                      minimumSize: const Size(100, 50),
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20)),
+                    ),
+                    child: const Text(
+                      "Return Zero",
+                      textScaleFactor: 1.5,
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(top: 30.0, left: 20.0),
+                  child: ElevatedButton(
+                    onPressed: _reduceCounter,
+                    style: ElevatedButton.styleFrom(
+                      minimumSize: const Size(100, 50),
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20)),
+                    ),
+                    child: const Text(
+                      "Reduce a count",
+                      textScaleFactor: 1.5,
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(top: 30.0, left: 20.0),
+                  child: ElevatedButton(
+                    onPressed: _changePic,
+                    style: ElevatedButton.styleFrom(
+                      minimumSize: const Size(100, 50),
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20)),
+                    ),
+                    child: const Text(
+                      "Change a picture",
+                      textScaleFactor: 1.5,
+                    ),
+                  ),
+                ),
+              ],
+            )
                   ],
                 );
               },
             ),
           ],
         ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: _incrementCounter,
+        tooltip: 'Increment',
+        child: const Icon(Icons.add),
       ),
     );
   }
@@ -163,3 +261,4 @@ class login extends State<MyHomePage> {
     });
   }
 }
+
